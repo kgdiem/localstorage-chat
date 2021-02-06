@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import { createMessage, loadMessages } from "../../redux/actions";
+import { createMessage, loadMessages, loadUser } from "../../redux/actions";
 import {
   getCurrentUser,
   getMessages,
@@ -11,6 +11,7 @@ import {
 } from "../../redux/selectors";
 import { Message } from "../Message/Message";
 import { MessageInput } from "../MessageInput/MessageInput";
+import { useQuery } from "../../hooks";
 
 export const Messenger = () => {
   const messageEndRef = useRef(null);
@@ -19,6 +20,7 @@ export const Messenger = () => {
   const total = useSelector(getTotal);
   const pageSize = useSelector(getPageSize);
   const dispatch = useDispatch();
+  const query = useQuery();
   // Track didScroll to make sure another page doesn't load when we navigate to this page or double up once a new page was loaded
   const [didScroll, setDidScroll] = useState(false);
 
@@ -49,7 +51,15 @@ export const Messenger = () => {
     }
   }, [messages, pageSize]);
 
-  if (!currentUser) {
+  const userId = query.get("userId");
+
+  if (!currentUser && userId) {
+    dispatch(loadUser(userId));
+
+    return <div></div>;
+  }
+
+  if (!currentUser || currentUser.error) {
     return <Redirect to="/"></Redirect>;
   }
 

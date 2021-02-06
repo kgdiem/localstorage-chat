@@ -1,4 +1,9 @@
-import { CREATE_USER_SUCCESS, LOAD_USERS_SUCCESS } from "../actionTypes";
+import {
+  CREATE_USER_SUCCESS,
+  LOAD_USERS_SUCCESS,
+  LOAD_USER_ERROR,
+  LOAD_USER_SUCCESS,
+} from "../actionTypes";
 
 const initialState = {
   users: [],
@@ -17,6 +22,18 @@ export default function users(state = initialState, action) {
       return {
         ...state,
         users: action.payload.users,
+      };
+    }
+    case LOAD_USER_ERROR: {
+      return {
+        ...state,
+        currentUser: { error: true },
+      };
+    }
+    case LOAD_USER_SUCCESS: {
+      return {
+        ...state,
+        currentUser: action.payload.user,
       };
     }
     default: {

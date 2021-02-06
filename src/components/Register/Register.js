@@ -21,8 +21,8 @@ export const Register = () => {
     }
   };
 
-  if (currentUser) {
-    return <Redirect to="/chat"></Redirect>;
+  if (currentUser && !currentUser.error) {
+    return <Redirect to={`/chat?userId=${currentUser.id}`}></Redirect>;
   }
 
   return (

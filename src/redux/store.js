@@ -4,6 +4,7 @@ import {
   createUserMiddleware,
   loadMessagesMiddleware,
   loadUsersMiddleware,
+  loadUserMiddleware,
 } from "./middleware";
 import reducer from "./reducers";
 
@@ -13,6 +14,7 @@ export const store = createStore(
     createMessageMiddleware,
     createUserMiddleware,
     loadMessagesMiddleware,
-    loadUsersMiddleware
+    loadUsersMiddleware,
+    loadUserMiddleware
   )
 );
