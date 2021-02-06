@@ -1,0 +1,21 @@
+.message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message.sent {
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.message-text {
+  border: 1px solid #e3dfde;
+  border-radius: 10px;
+  background-color: #595853;
+  color: white;
+}
+
+.message.sent .message-text {
+  background-color: yellowgreen;
+}

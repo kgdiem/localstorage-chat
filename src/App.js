@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { store } from "./redux";
+import { Register } from "./components/Register/Register";
+import { Messenger } from "./components/Messenger/Messenger";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path="/chat">
+          <Messenger></Messenger>
+        </Route>
+        <Route path="/" exact>
+          <Register></Register>
+        </Route>
+      </Switch>
+    </Router>
+  </Provider>
+);
 
 export default App;
