@@ -3,8 +3,7 @@ import { Col, Container, Form, Row, Button, InputGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import logo from "../../assets/IRISCRM.png";
-import { createUser } from "../../redux/actions";
-import { getCurrentUser } from "../../redux/selectors";
+import { createUser, getCurrentUser } from "../../redux";
 import "./Register.css";
 
 export const Register = () => {
@@ -29,7 +28,7 @@ export const Register = () => {
     <Container fluid>
       <Row>
         <Col className="d-flex flex-column align-items-center">
-          <h1>Welcome to IrisChat</h1>
+          <h1>Welcome to IRIS Chat</h1>
           <img className="logo" src={logo} alt="IRIS Logo" />
         </Col>
       </Row>

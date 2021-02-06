@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+# IRIS Chat
+
+## Layout & Reasonings
+
+There is a top level \_\_mocks\_\_ folder as these can be shared throughtout the app.
+
+There is a \_\_tests\_\_ directory in each folder where there are tests.
+
+Each component has its own folder/module to keep the folder clean and readable.
+
+The hooks folder has a custom hook that allows for reading the query string.
+
+The lib directory has services and helper functions. I made the services objects rather than clsses because I wanted every method to be static rather than creating a class every time they're used. I also didn't feel the need to track any state. I made the service methods return promises to simulate an API call.
+
+For the store I used the standard redux pattern. Easy enough.
+
+## Testing
+
+I wrote tests for all of the logic in the services and store. For the sake of time I didn't include component tests aside from making sure `<App/>` renders without error.
+
+I changed the `package.json` to run `react-scripts test --verbose` because I prefer to see the names of the tests.
+
+Make sure to hit `a` in the terminal window if only the `<App/>` test runs & you'd like to see them all.
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
