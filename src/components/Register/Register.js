@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row, Button, InputGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import logo from "../../assets/IRISCRM.png";
 import { createUser, getCurrentUser } from "../../redux";
-import "./Register.css";
 
 export const Register = () => {
   const [name, setName] = useState("");
@@ -26,10 +24,9 @@ export const Register = () => {
 
   return (
     <Container fluid>
-      <Row>
+      <Row className="mb-5">
         <Col className="d-flex flex-column align-items-center">
-          <h1>Welcome to IRIS Chat</h1>
-          <img className="logo" src={logo} alt="IRIS Logo" />
+          <h1>Welcome to LocalStorage Chat</h1>
         </Col>
       </Row>
       <Row>

@@ -1,4 +1,14 @@
-# IRIS Chat
+# LocalStorage Chat
+
+## What is it?
+
+LocalStorage chat was an app I made as a screening for a job interview.
+
+### Features
+
+1. Stores messages in LocalStorage
+2. Paginates messages
+3. User can refresh or send another message to see new messages from other users(tabs)
 
 ## Layout & Reasonings
 
